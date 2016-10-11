@@ -20,13 +20,13 @@ public class BezierTestView extends View {
     private Path mPath;
     //两个距离的差越小角的高越小
     //最大距离 距离顶端 第一个顶点y
-    private int first_y=30;
+    private int first_y=70;
     //第一个顶点x
     private int first_x=0;
     //角的大小宽
-    private int horn_size=20;
+    private int horn_size=100;
     //最小距离距离顶端
-    private int minimum_distance=20;
+    private int minimum_distance=10;
 
     public int getMinimum_distance() {
         return minimum_distance;
@@ -84,11 +84,24 @@ public class BezierTestView extends View {
     }
 
     private void init() {
+        /**
+         setAntiAlias: 设置画笔的锯齿效果。
+         setColor: 设置画笔颜色
+         setARGB:  设置画笔的a,r,p,g值。
+         setAlpha:  设置Alpha值
+         setTextSize: 设置字体尺寸。
+         setStyle:  设置画笔风格，空心或者实心。
+         setStrokeWidth: 设置空心的边框宽度。
+         getColor:  得到画笔的颜色
+         getAlpha:  得到画笔的Alpha值。
+         */
         //画笔
         mPaint = new Paint();
+        //是否设置抗锯齿效果
         mPaint.setAntiAlias(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(0xFF412129);
+        mPaint.setTextSize((float) 2.0);
         mPath = new Path();
         WindowManager wm = (WindowManager) getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
@@ -109,7 +122,10 @@ public class BezierTestView extends View {
 
         mPath.moveTo(first_x,first_y);
         //mPath.lineTo(50,10);
-        for (int i=1;i<=screenWidth/horn_size;i++){
+        //屏幕宽度除以角的宽度
+        int size=screenWidth%horn_size==0?screenWidth/horn_size:screenWidth/horn_size+1;
+        //画多少个
+        for (int i=1;i<=size;i++){
             //y前一个大角后一个小
             mPath.lineTo((i*horn_size)+first_x,i%2==0?first_y:minimum_distance);
         }
