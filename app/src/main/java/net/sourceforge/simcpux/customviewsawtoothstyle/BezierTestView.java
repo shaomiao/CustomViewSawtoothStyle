@@ -19,14 +19,19 @@ public class BezierTestView extends View {
     private Paint mPaint;
     private Path mPath;
     //两个距离的差越小角的高越小
-    //最大距离 距离顶端 第一个顶点y
-    private int first_y=70;
+
+    //距离顶端 第一个顶点y 如果不为0 就等于最大距离
+    private int first_y=0;
     //第一个顶点x
     private int first_x=0;
     //角的大小宽
-    private int horn_size=100;
+    private int horn_size=9;
     //最小距离距离顶端
-    private int minimum_distance=10;
+    private int minimum_distance=0;
+    //最大距离距离顶端
+    private int maximum_distance=10;
+    //是否是向下画 true为是
+    private boolean flag=true;
 
     public int getMinimum_distance() {
         return minimum_distance;
@@ -110,25 +115,28 @@ public class BezierTestView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
         mPath.reset();
 //        mPath.moveTo(0,90);
-//        //mPath.lineTo(0,0);
 //        mPath.lineTo(100,50);
 //        mPath.lineTo(100*2,90);
 //        mPath.lineTo(100*3,50);
 //        mPath.lineTo(100*4,90);
 //        mPath.lineTo(100*5,50);
 
-        mPath.moveTo(first_x,first_y);
-        //mPath.lineTo(50,10);
-        //屏幕宽度除以角的宽度
-        int size=screenWidth%horn_size==0?screenWidth/horn_size:screenWidth/horn_size+1;
-        //画多少个
-        for (int i=1;i<=size;i++){
-            //y前一个大角后一个小
-            mPath.lineTo((i*horn_size)+first_x,i%2==0?first_y:minimum_distance);
+        mPath.moveTo(first_x, first_y != 0 ? maximum_distance : first_y);
+        if(flag) {
+            for (int i = 1; i <= screenWidth / horn_size; i++) {
+                //y前一个大角后一个小
+                mPath.lineTo((i * horn_size) + first_x, i % 2 == 0 ? minimum_distance : maximum_distance);
+            }
+        }else {
+            for (int i = 1; i <= screenWidth / horn_size; i++) {
+                //y前一个大角后一个小
+                mPath.lineTo((i * horn_size) + first_x, i % 2 == 0 ? maximum_distance : minimum_distance);
+            }
         }
+
         canvas.drawPath(mPath, mPaint);
+
     }
 }
