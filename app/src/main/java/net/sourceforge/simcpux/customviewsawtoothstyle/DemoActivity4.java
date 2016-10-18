@@ -10,5 +10,7 @@ public class DemoActivity4 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo4);
+        SawtoothBlackView sawtooth1= (SawtoothBlackView) findViewById(R.id.sawtooth1);
+        sawtooth1.setState(false);
     }
 }

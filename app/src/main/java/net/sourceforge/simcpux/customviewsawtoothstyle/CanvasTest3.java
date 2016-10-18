@@ -39,8 +39,8 @@ public class CanvasTest3 extends View {
         //paint.setStrokeWidth(3);
         this.heigth= (int) (30*dm.density);
         this.width= (int) (dm.widthPixels*dm.density);
-        this.triangle_width= (int) (10*dm.density);
-        this.triangle_height=(int)(10*dm.density);
+        this.triangle_width= (int) (12*dm.density);
+        this.triangle_height=(int)(6*dm.density);
 
     }
 

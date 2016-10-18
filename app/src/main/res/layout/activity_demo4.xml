@@ -1,17 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <net.sourceforge.simcpux.customviewsawtoothstyle.CanvasTest3
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:id="@+id/testview"
-        />
-    <net.sourceforge.simcpux.customviewsawtoothstyle.CanvasTest4
+    <net.sourceforge.simcpux.customviewsawtoothstyle.SawtoothBlackView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@android:color/white"
-        android:id="@+id/testview1"
+        android:id="@+id/sawtooth"
+        />
+    <net.sourceforge.simcpux.customviewsawtoothstyle.SawtoothBlackView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/sawtooth1"
         android:layout_alignParentBottom="true"
         />
 </RelativeLayout>

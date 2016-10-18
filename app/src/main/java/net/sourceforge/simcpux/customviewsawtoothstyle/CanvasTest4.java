@@ -24,12 +24,6 @@ public class CanvasTest4 extends View {
     private  void init(){
         dm= new DisplayMetrics();
         ((Activity)getContext()).getWindowManager().getDefaultDisplay().getMetrics(dm);
-        paint = new Paint(); //设置一个笔刷大小是3的黄色的画笔
-        //paint.setColor(Color.YELLOW);
-        //paint.setColor(0xFF412129);
-//        paint.setStrokeJoin(Paint.Join.ROUND);
-//        paint.setStrokeCap(Paint.Cap.ROUND);
-        // paint.setStrokeWidth(3);
         paint = new Paint();
         //是否设置抗锯齿效果
         paint.setAntiAlias(true);
@@ -39,8 +33,8 @@ public class CanvasTest4 extends View {
         //paint.setStrokeWidth(3);
         this.heigth= (int) (30*dm.density);
         this.width= (int) (dm.widthPixels*dm.density);
-        this.triangle_width= (int) (10*dm.density);
-        this.triangle_height=(int)(10*dm.density);
+        this.triangle_width= (int) (12*dm.density);
+        this.triangle_height=(int)(6*dm.density);
 
     }
 
