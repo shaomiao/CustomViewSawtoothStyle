@@ -34,7 +34,7 @@ public class CanvasTest4 extends View {
         //是否设置抗锯齿效果
         paint.setAntiAlias(true);
         //paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(0xFF412129);
+        paint.setColor(getResources().getColor(R.color.black));
         //paint.setTextSize((float) 2.0);
         //paint.setStrokeWidth(3);
         this.heigth= (int) (30*dm.density);
@@ -70,11 +70,12 @@ public class CanvasTest4 extends View {
         Path path = new Path(); //定义一条路径
         Log.e("aaa", "onDraw: "+heigth);
         path.moveTo(0,0);
-        path.lineTo(triangle_width/2,triangle_height);
-        path.lineTo(triangle_width,0);
-        path.lineTo(triangle_width/2*3,triangle_height);
-        path.lineTo(triangle_width/2*4,0);
-        path.lineTo(triangle_width/2*4,heigth);
+        int i=1;
+        for(;i<width/triangle_width;i++){
+            path.lineTo(triangle_width/2*i,i%2==0?0:triangle_height);
+        }
+        path.lineTo(triangle_width/2*i,0);
+        path.lineTo(triangle_width/2*i,heigth);
         path.lineTo(0,heigth);
         path.lineTo(0,0);
         canvas.drawPath(path, paint);

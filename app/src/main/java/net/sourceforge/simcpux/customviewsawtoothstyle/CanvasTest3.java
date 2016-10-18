@@ -34,7 +34,7 @@ public class CanvasTest3 extends View {
         //是否设置抗锯齿效果
         paint.setAntiAlias(true);
         //paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(0xFF412129);
+        paint.setColor(getResources().getColor(R.color.black));
         //paint.setTextSize((float) 2.0);
         //paint.setStrokeWidth(3);
         this.heigth= (int) (30*dm.density);
