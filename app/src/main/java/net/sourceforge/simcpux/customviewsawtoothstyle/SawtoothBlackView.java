@@ -92,7 +92,7 @@ public class SawtoothBlackView extends View {
         paint = new Paint();
         //是否设置抗锯齿效果
         paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
+        //paint.setStyle(Paint.Style.STROKE);
         paint.setColor(getResources().getColor(R.color.black));
         //paint.setTextSize((float) 2.0);
         //paint.setStrokeWidth(3);
@@ -104,6 +104,12 @@ public class SawtoothBlackView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        //一个矩形块占满颜色为白色
+        Paint paint1=new Paint();
+        paint1.setAntiAlias(true);
+        //paint1.setStyle(Paint.Style.STROKE);
+        paint1.setColor(getResources().getColor(R.color.colorAccent));
+        canvas.drawRect(0,0,big_width,big_heigth,paint1);
         Path path = new Path(); //定义一条路径
         /**
          * 首先画出定点距离然后根据小角的宽度计算花多少次角
@@ -119,9 +125,9 @@ public class SawtoothBlackView extends View {
             path.lineTo(0, big_heigth);
             int i = 1;
             for (; i <= lineCount; i++) {
-                path.lineTo((triangle_width / 2+((float)remainder/(float) lineCount)) * i, i % 2 == 0 ? big_heigth : big_heigth - triangle_height);
+                path.lineTo((triangle_width / 2+(remainder/ lineCount)) * i, i % 2 == 0 ? big_heigth : big_heigth - triangle_height);
             }
-            path.lineTo((triangle_width / 2+((float)remainder/(float) lineCount)) * (i > 1 ? i - 1 : i), 0);
+            path.lineTo((triangle_width / 2+(remainder/ lineCount)) * (i > 1 ? i - 1 : i), 0);
 
             path.lineTo(0, 0);
         }else{
@@ -129,7 +135,7 @@ public class SawtoothBlackView extends View {
             int i=1;
             //path.lineTo(triangle_width/2*i+remainder,i%2==0?0:triangle_height);
             for(; i< lineCount; i++){
-                path.lineTo( ((triangle_width/2+((float)remainder/(float) lineCount))*i),i%2==0?0:triangle_height);
+                path.lineTo(((triangle_width/2+(remainder/lineCount))*i),i%2==0?0:triangle_height);
             }
             path.lineTo(big_width,0);
             path.lineTo(big_width,  big_heigth);
@@ -138,5 +144,6 @@ public class SawtoothBlackView extends View {
             path.lineTo(0,0);
         }
         canvas.drawPath(path, paint);
+
     }
 }
