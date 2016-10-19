@@ -12,5 +12,6 @@ public class DemoActivity4 extends Activity {
         setContentView(R.layout.activity_demo4);
         SawtoothBlackView sawtooth1= (SawtoothBlackView) findViewById(R.id.sawtooth1);
         sawtooth1.setState(false);
+        sawtooth1.setBig_heigth(100);
     }
 }

@@ -23,13 +23,13 @@ public class SawtoothBlackView extends View {
     //获取屏幕的系数
     private DisplayMetrics dm;
     //不规则块的高
-    private int big_heigth;
+    private float big_heigth;
     //总的宽度
-    private int big_width;
+    private float big_width;
     //小角的高度
-    private int triangle_height;
+    private float triangle_height;
     //小角的高度
-    private int triangle_width;
+    private float triangle_width;
     //是否是向上画的
     private boolean state=true;
 
@@ -45,16 +45,24 @@ public class SawtoothBlackView extends View {
         this.paint = paint;
     }
 
+    public void setBig_heigth(float big_heigth) {
+        this.big_heigth = big_heigth;
+    }
+
     public void setDm(DisplayMetrics dm) {
         this.dm = dm;
     }
 
-    public void setBig_heigth(int big_heigth) {
-        this.big_heigth = big_heigth;
+    public void setBig_width(float big_width) {
+        this.big_width = big_width;
     }
 
-    public void setBig_width(int big_width) {
-        this.big_width = big_width;
+    public void setTriangle_height(float triangle_height) {
+        this.triangle_height = triangle_height;
+    }
+
+    public void setTriangle_width(float triangle_width) {
+        this.triangle_width = triangle_width;
     }
 
     public SawtoothBlackView(Context context) {
@@ -84,14 +92,14 @@ public class SawtoothBlackView extends View {
         paint = new Paint();
         //是否设置抗锯齿效果
         paint.setAntiAlias(true);
-        //paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.STROKE);
         paint.setColor(getResources().getColor(R.color.black));
         //paint.setTextSize((float) 2.0);
         //paint.setStrokeWidth(3);
-        this.big_heigth = (int) (30*dm.density);
+        this.big_heigth = 30*dm.density;
         this.big_width = dm.widthPixels;
-        this.triangle_width= (int) (20*dm.density);
-        this.triangle_height=(int)(10*dm.density);
+        this.triangle_width= 10*dm.density;
+        this.triangle_height=6*dm.density;
     }
 
     @Override
@@ -104,22 +112,21 @@ public class SawtoothBlackView extends View {
          * 然后画每个角的时候加
          * 保证能铺满
          */
+        float remainder= big_width%triangle_width;
+        float lineCount=big_width /triangle_width*2;
         if(state) {
             path.moveTo(0, 0);
             path.lineTo(0, big_heigth);
             int i = 1;
-            int remainder= big_width%triangle_width;
-            int lineCount=big_width /triangle_width*2;
             for (; i <= lineCount; i++) {
                 path.lineTo((triangle_width / 2+((float)remainder/(float) lineCount)) * i, i % 2 == 0 ? big_heigth : big_heigth - triangle_height);
             }
             path.lineTo((triangle_width / 2+((float)remainder/(float) lineCount)) * (i > 1 ? i - 1 : i), 0);
+
             path.lineTo(0, 0);
         }else{
             path.moveTo(0,0);
             int i=1;
-            int remainder= big_width%triangle_width;
-            int lineCount=big_width /triangle_width*2;
             //path.lineTo(triangle_width/2*i+remainder,i%2==0?0:triangle_height);
             for(; i< lineCount; i++){
                 path.lineTo( ((triangle_width/2+((float)remainder/(float) lineCount))*i),i%2==0?0:triangle_height);
