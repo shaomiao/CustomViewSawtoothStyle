@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CustomViewSawtoothStyle.iml" filepath="$PROJECT_DIR$/CustomViewSawtoothStyle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Topbar/Topbar.iml" filepath="$PROJECT_DIR$/Topbar/Topbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

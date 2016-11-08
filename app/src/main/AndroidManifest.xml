@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.sourceforge.simcpux.customviewsawtoothstyle">
+          package="net.sourceforge.simcpux.customviewsawtoothstyle">
 
     <application
         android:allowBackup="true"
@@ -10,17 +10,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DemoActivity" />
+        <activity android:name=".DemoActivity"/>
         <activity
             android:name=".DemoActivity2"
-            android:theme="@android:style/Theme.NoTitleBar" />
-        <activity android:name=".DemoAcivity3" />
-        <activity android:name=".DemoActivity4"></activity>
+            android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".DemoAcivity3"/>
+        <activity android:name=".DemoActivity4"/>
+        <activity android:name=".DemoActivity5">
+        </activity>
     </application>
 
 </manifest>

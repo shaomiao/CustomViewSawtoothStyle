@@ -13,25 +13,38 @@
     <Button
         android:id="@+id/btn_demo"
         android:text="锯齿状"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_demo2"
         android:text="绘制心型有点问题"
         />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_demo3"
         android:text="锯齿形块"
         />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_demo4"
         android:text="锯齿状填充颜色占满"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_demo5"
+        android:text="Topbar"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动相机"
+        android:onClick="startCamera"
+        />
+
 
 </LinearLayout>

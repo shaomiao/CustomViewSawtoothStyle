@@ -48,7 +48,7 @@ public class CanvasTest extends View {
         //绘制图片
 
         canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher), 150, 150, paint);
-//canvas.drawRGB(23,23,23);
+        //canvas.drawRGB(23,23,23);
         //canvas.drawCircle(100, 100, 90, paint);
         //
 

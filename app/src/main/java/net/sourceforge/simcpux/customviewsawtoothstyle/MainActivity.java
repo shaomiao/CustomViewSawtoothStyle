@@ -2,8 +2,8 @@ package net.sourceforge.simcpux.customviewsawtoothstyle;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -16,6 +16,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn_demo2).setOnClickListener(this);
         findViewById(R.id.btn_demo3).setOnClickListener(this);
         findViewById(R.id.btn_demo4).setOnClickListener(this);
+        findViewById(R.id.btn_demo5).setOnClickListener(this);
     }
 
     @Override
@@ -33,6 +34,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn_demo4:
                 startActivity(new Intent(MainActivity.this,DemoActivity4.class));
                 break;
+            case R.id.btn_demo5:
+                startActivity(new Intent(MainActivity.this,DemoActivity5.class));
+                break;
         }
+    }
+    public void startCamera(View view){
+        Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivity(intent);
     }
 }
