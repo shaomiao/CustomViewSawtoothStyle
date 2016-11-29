@@ -21,8 +21,8 @@
             android:theme="@android:style/Theme.NoTitleBar"/>
         <activity android:name=".DemoAcivity3"/>
         <activity android:name=".DemoActivity4"/>
-        <activity android:name=".DemoActivity5">
-        </activity>
+        <activity android:name=".DemoActivity5"/>
+        <activity android:name=".DemoActivity6"/>
     </application>
 
 </manifest>

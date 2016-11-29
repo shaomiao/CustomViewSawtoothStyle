@@ -28,5 +28,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.facebook.rebound:rebound:0.3.8'
     compile 'com.tumblr:backboard:0.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha2'
 
 }

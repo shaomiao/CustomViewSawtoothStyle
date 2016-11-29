@@ -45,6 +45,12 @@
         android:text="启动相机"
         android:onClick="startCamera"
         />
+    <Button
+        android:id="@+id/btn_demo6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义圆形"
+        />
 
 
 </LinearLayout>
